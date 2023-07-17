@@ -7,8 +7,9 @@ class CreditCalculatorPage:
     def __init__(self, driver):
         self.driver = driver
 
-    def get_pop_up_button(self):
-        return self.driver.find_element(By.XPATH, Locator.pop_up_button)
+    def click_pop_up_button(self):
+        pop_up_button = self.driver.find_element(By.XPATH, Locator.pop_up_button)
+        pop_up_button.click()
 
     def credit_value(self):
         return self.driver.find_element(By.XPATH, Locator.credit_value)
