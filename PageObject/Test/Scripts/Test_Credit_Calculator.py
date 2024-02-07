@@ -4,13 +4,14 @@ import unittest
 from PageObject.Excel_Config import Excel_Utils
 from PageObject.Pages.Credit_Calculator_Page import CreditCalculatorPage
 from PageObject.Config.WebdriverSetup import WebdriverSetup
+from PageObject.Config.WebdriverSetupEdge import WebdriverSetupEdge
 from PageObject.Config.Excel_path import file
 
 
 class TestCreditCalculator(unittest.TestCase):
     def setUp(self):
         super().setUp()
-        self.driver = WebdriverSetup.webdriver_setup()
+        self.driver = WebdriverSetupEdge.webdriver_setup()
         self.page_object = CreditCalculatorPage(self.driver)
         time.sleep(2)
         self.page_object.click_pop_up_button()
