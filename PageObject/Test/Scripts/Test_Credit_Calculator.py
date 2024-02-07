@@ -1,7 +1,7 @@
 import time
 import unittest
 
-import Excel_Utils
+from PageObject.Excel_Config import Excel_Utils
 from PageObject.Pages.Credit_Calculator_Page import CreditCalculatorPage
 from PageObject.Config.WebdriverSetup import WebdriverSetup
 from PageObject.Config.Excel_path import file
@@ -16,7 +16,7 @@ class TestCreditCalculator(unittest.TestCase):
         self.page_object.click_pop_up_button()
 
     def test_page_title(self):
-        web_page_title = "Kalkulator kredytowy gotówkowy 2023 – kalkulator rat kredytu gotówkowego"
+        web_page_title = "Kalkulator kredytowy gotówkowy 2024 – kalkulator rat kredytu gotówkowego"
         assert self.driver.title == web_page_title
 
     def test_credit_result(self):
@@ -33,6 +33,7 @@ class TestCreditCalculator(unittest.TestCase):
             self.page_object.credit_period().send_keys(tc_credit_period)
             self.page_object.credit_interest().send_keys(tc_credit_percentage)
 
+            time.sleep(2)
             self.page_object.calculate_button().click()
             time.sleep(2)
 
